@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { v4 as uuidv4 } from "uuid";
-
 const Form = ({input, setInput, todo, setTodo, editTodo, setEditTodo}) => {
 
     const updateTodo = (title, id, completed) => {
