@@ -99,3 +99,28 @@ input:focus,
 button:focus {
   outline: none;
 }
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+  .container {
+  background: #12343b;
+    align-items: flex-start;
+  }
+
+  .app-wrapper {
+    border-radius: 0%;
+    min-width: auto;
+    width: 100%;
+    box-shadow: none;
+    padding: 15px;
+  }
+
+  .task-input {
+    width: 90%;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  .button-add {
+    width: 100%;
+  }
+}
