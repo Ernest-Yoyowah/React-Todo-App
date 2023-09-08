@@ -1,11 +1,11 @@
 import React from 'react';
 
-const TodoList = ({todo, setTodo, setEditTodo}) => {
+const TodoList = ({todos, setTodos, setEditTodo}) => {
 
-    const handleComplete = (todoA) => {
-        setTodo(
-            todo.map((item) => {
-                if (item.id === todoA.id) {
+    const handleComplete = (todo) => {
+        setTodos(
+            todos.map((item) => {
+                if (item.id === todo.id) {
                     return {...item, completed: !item.completed}
                 }
                 return item;
@@ -14,32 +14,34 @@ const TodoList = ({todo, setTodo, setEditTodo}) => {
     }
 
     const handleEdit = ({ id }) => {
-        const findTodo = todo.find((todoA) => todo.id === id);
+        const findTodo = todos.find((todo) => todo.id === id);
         setEditTodo(findTodo);
     }
 
     const handleDelete = ({id}) => {
-        setTodo(todo.filter((todoA) => todoA.id !== id));
+        setTodos(todos.filter((todo) => todo.id !== id));
     }
   return (
     <div>
-        {todo.map((todoA) => (
-            <li className='list-item' key={todoA.id}>
+        {todos.map((todo) => (
+            <li className='list-item' key={todo.id}>
                 <input
                 type='text'
-                value={todoA.title}
-                className={`list ${todoA.completed ? "complete" : ""}`}
+                value={todo.title}
+                className={`list ${todo.completed ? "complete" : ''}`}
                 onChange={(event) => event.preventDefault()}
             />
             <div>
-                <button className='button-complete task-button' onClick={() => handleComplete(todoA)}>
+                <button className='button-complete task-button'
+                    onClick={() => handleComplete(todo)}>
                     <i className='fa fa-check-circle'></i>
                 </button>
-                <button className='button-edit task-button' onClick={() => handleEdit(todo)}>
+                <button className='button-edit task-button'
+                    onClick={() => handleEdit(todo)}>
                     <i className='fa fa-edit'></i>
                 </button>
                 <button className='button-delete task-button'
-                    onClick={() => handleDelete(todoA)}>
+                    onClick={() => handleDelete(todo)}>
                     <i className='fa fa-trash'></i>
                 </button>
             </div>
