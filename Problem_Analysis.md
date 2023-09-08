@@ -48,28 +48,41 @@ The project's objective is to create a React-based to-do list application with t
 ## Pseudocode for the Backend
 
 ```javascript
-// Import necessary modules and set up your server
+// Import necessary modules
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
+
+// Import routes
+const routes = require('./routes/ToDoRoutes');
+
+// Load environment variables
+require('dotenv').config();
+
+// Create an Express app
 const app = express();
-const port = 3000;
 
-// Connect to MongoDB database
-mongoose.connect('mongodb://localhost/todoapp', { useNewUrlParser: true });
+// Define the port number
+const PORT = process.env.PORT || 5000;
 
-// Create a schema for tasks
-const taskSchema = new mongoose.Schema({
-  title: String,
-  description: String,
-});
+// Use middleware to parse JSON and enable CORS
+app.use(express.json());
+app.use(cors());
 
-// Create a model for tasks
-const Task = mongoose.model('Task', taskSchema);
+// Connect to the MongoDB database
+mongoose
+  .connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Connected to MongoDB...');
+  })
+  .catch((err) => {
+    console.error('Error connecting to MongoDB:', err);
+  });
 
-// Define API endpoints for CRUD operations
-// Implement Create, Read, Update, and Delete routes here
+// Use defined routes for handling API requests
+app.use(routes);
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
 });
