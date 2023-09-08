@@ -3,8 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 const Form = ({input, setInput, todo, setTodo, editTodo, setEditTodo}) => {
 
     const updateTodo = (title, id, completed) => {
-        const newTodo = todo.map((todoA) =>
-            todo.id === id ? {title, id, completed} : todoA
+        const newTodo = todo.map((todo) =>
+            todo.id === id ? {title, id, completed} : todo
         );
         setTodo(newTodo);
         setEditTodo("");

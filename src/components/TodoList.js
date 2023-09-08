@@ -28,14 +28,14 @@ const TodoList = ({todo, setTodo, setEditTodo}) => {
                 <input
                 type='text'
                 value={todoA.title}
-                className='list'
+                className={`list ${todoA.completed ? "complete" : ""}`}
                 onChange={(event) => event.preventDefault()}
             />
             <div>
                 <button className='button-complete task-button' onClick={() => handleComplete(todoA)}>
                     <i className='fa fa-check-circle'></i>
                 </button>
-                <button className='button-edit task-button' onClick={() => handleEdit(todoA)}>
+                <button className='button-edit task-button' onClick={() => handleEdit(todo)}>
                     <i className='fa fa-edit'></i>
                 </button>
                 <button className='button-delete task-button'
