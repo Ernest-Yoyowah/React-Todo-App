@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a full-stack to-do list application built with React.js for the front end and Node.js for the back end, with integrated database functionality using MongoDB (or your preferred database). It offers users a seamless way to manage their tasks by adding, deleting, and editing them.
+This project is a full-stack to-do list application built with React.js for the front end and Node.js for the back end, with integrated database functionality using MongoDB. It offers users a seamless way to manage their tasks by adding, deleting, and editing them.
 
 ## Features
 
