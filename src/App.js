@@ -3,16 +3,16 @@ import './App.css';
 import Form from './components/Form';
 import Header from './components/Header';
 import TodoList from './components/TodoList';
+import { getAllToDo } from './utils/handelApi';
 
 const App = () => {
-    const initialState = JSON.parse(localStorage.getItem("todos")) || [];
     const [input, setInput] = useState("");
-    const [todos, setTodos] = useState(initialState);
+    const [todos, setTodos] = useState([]);
     const [editTodo, setEditTodo] = useState(null);
 
     useEffect(() => {
-      localStorage.setItem("todos", JSON.stringify(todos));
-    }, [todos]);
+      getAllToDo(setTodos)
+    }, []);
 
   return (
     <div className="container">

@@ -60,6 +60,8 @@
   max-height: 50px;
 }
 
+
+
 .button-complete,
 .button-delete,
 .button-edit {
@@ -93,6 +95,10 @@
   font-size: 20px;
   padding-left: 10px;
   padding-right: 15px;
+}
+
+.control-btn {
+  padding-left: 1rem;
 }
 
 input:focus,
