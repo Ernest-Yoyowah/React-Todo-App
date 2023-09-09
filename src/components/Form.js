@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { v4 as uuidv4 } from "uuid";
-import { addToDo } from '../utils/handelApi';
+// import { addToDo } from '../utils/handelApi';
 const Form = ({input, setInput, todos, setTodos, editTodo, setEditTodo}) => {
 
     const updateTodo = (title, id, completed) => {
@@ -45,7 +45,7 @@ const Form = ({input, setInput, todos, setTodos, editTodo, setEditTodo}) => {
         onChange={onInputChange}
         />
         <button className='button-add' type='submit'
-        onClick={addToDo}
+        // onClick={addToDo}
         >
             {editTodo ? "OK" : "Add"}
         </button>
