@@ -98,7 +98,12 @@
 }
 
 .control-btn {
-  padding-left: 1rem;
+  padding-left: 2.7rem;
+}
+.no-todos {
+  color: #fff;
+  text-align: center;
+  margin: 30px 0;
 }
 
 input:focus,
@@ -128,5 +133,8 @@ button:focus {
   }
   .button-add {
     width: 100%;
+  }
+  .control-btn {
+    padding-left: 1rem;
   }
 }

@@ -12,12 +12,15 @@ const TodoList = ({todos, setTodos, setEditTodo}) => {
     }
   return (
     <div>
+        <div className="no-todos">
+        {todos.length === 0 && "No Todos"}
+        </div>
         {todos.map((todo) => (
             <li className='list-item' key={todo.id}>
                 <input
                 type='text'
                 value={todo.title}
-                className={`list ${todo.completed ? "complete" : ''}`}
+                className={`list`}
                 onChange={(event) => event.preventDefault()}
             />
             <div className='control-btn'>
