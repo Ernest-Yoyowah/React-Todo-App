@@ -13,7 +13,7 @@ const TodoList = ({todos, setTodos, setEditTodo}) => {
   return (
     <div>
         <div className="no-todos">
-        {todos.length === 0 && "No Todos"}
+            {todos.length === 0 && "No Todos"}
         </div>
         {todos.map((todo) => (
             <li className='list-item' key={todo.id}>

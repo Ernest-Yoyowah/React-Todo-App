@@ -6,7 +6,7 @@ const getAllToDo = (setToDo) => {
     axios
     .get(baseUrl)
     .then(({data}) => {
-        console.log("data---> ", data);
+        console.log('data---> ', data);
         setToDo(data)
     })
 }
