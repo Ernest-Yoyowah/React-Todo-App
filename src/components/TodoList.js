@@ -19,7 +19,7 @@ const TodoList = ({todos, setTodos, setEditTodo}) => {
             <li className='list-item' key={todo.id}>
                 <input
                 type='text'
-                value={todo.title}
+                value={todo.text}
                 className={`list`}
                 onChange={(event) => event.preventDefault()}
             />

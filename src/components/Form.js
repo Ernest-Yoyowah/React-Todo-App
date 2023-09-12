@@ -3,16 +3,16 @@ import { v4 as uuidv4 } from "uuid";
 // import { addToDo } from '../utils/handelApi';
 const Form = ({input, setInput, todos, setTodos, editTodo, setEditTodo}) => {
 
-    const updateTodo = (title, id, completed) => {
+    const updateTodo = (text, id, completed) => {
         const newTodo = todos.map((todo) =>
-            todo.id === id ? {title, id, completed} : todo
+            todo.id === id ? {text, id, completed} : todo
         );
         setTodos(newTodo);
         setEditTodo("");
     };
     useEffect(() => {
         if (editTodo) {
-            setInput(editTodo.title);
+            setInput(editTodo.text);
         }
         else {
             setInput("")
@@ -26,7 +26,7 @@ const Form = ({input, setInput, todos, setTodos, editTodo, setEditTodo}) => {
     const onFormSubmit = (event) => {
         event.preventDefault();
         if (!editTodo) {
-            setTodos([...todos, {id: uuidv4(), title: input, completed: false }]);
+            setTodos([...todos, {id: uuidv4(), text: input, completed: false }]);
             setInput("");
         }
         else {
