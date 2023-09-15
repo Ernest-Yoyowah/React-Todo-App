@@ -1,4 +1,5 @@
 import React from 'react';
+import {deleteToDo} from '../utils/handelApi';
 
 const TodoList = ({todos, setTodos, setEditTodo, setText, setTodoId}) => {
 
@@ -30,6 +31,7 @@ const TodoList = ({todos, setTodos, setEditTodo, setText, setTodoId}) => {
                 className={`list`}
                 onChange={(event) => event.preventDefault()}
                 updateMode = {() => updateMode(todo._id, todo.text)}
+                deleteToDo = {() => deleteToDo(todo._id, setTodos)}
             />
             <div className='control-btn'>
                 <button className='button-edit task-button'

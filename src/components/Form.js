@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { v4 as uuidv4 } from "uuid";
-import { addToDo, updateEdit } from '../utils/handelApi';
+import { addToDo, updateEdit, deleteToDo } from '../utils/handelApi';
 
 
 const Form = ({input, setInput, todos, setTodos, editTodo, setEditTodo, text, setText, todoId ,setTodoId}) => {
@@ -50,7 +50,7 @@ const Form = ({input, setInput, todos, setTodos, editTodo, setEditTodo, text, se
         className='button-add' type='submit'
         onClick={
             editTodo ?
-            () =>updateEdit(todoId, text, setTodos, setText, updateEdit) :
+            () => updateEdit(todoId, text, setTodos, setText, updateEdit) :
             () => addToDo(text, setText, setTodos)}
         >
             {editTodo ? "Save Edit" : "Add"}
