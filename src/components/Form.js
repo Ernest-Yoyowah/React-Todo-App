@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { v4 as uuidv4 } from "uuid";
-import { addToDo, updateEdit, deleteToDo } from '../utils/handelApi';
+import { addToDo, updateEdit } from '../utils/handelApi';
 
 
 const Form = ({input, setInput, todos, setTodos, editTodo, setEditTodo, text, setText, todoId ,setTodoId}) => {
