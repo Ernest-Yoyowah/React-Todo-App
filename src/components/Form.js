@@ -50,8 +50,7 @@ const Form = ({input, setInput, todos, setTodos, editTodo, setEditTodo, text, se
         className='button-add' type='submit'
         onClick={
             editTodo ?
-            () => updateEdit(todoId, text, setTodos, setText, updateEdit)
-            :
+            () =>updateEdit(todoId, text, setTodos, setText, updateEdit) :
             () => addToDo(text, setText, setTodos)}
         >
             {editTodo ? "Save Edit" : "Add"}
