@@ -1,36 +1,38 @@
 import React, { useEffect } from 'react';
 import { v4 as uuidv4 } from "uuid";
-// import { addToDo } from '../utils/handelApi';
-const Form = ({input, setInput, todos, setTodos, editTodo, setEditTodo}) => {
+import { addToDo, updateEdit } from '../utils/handelApi';
 
-    const updateTodo = (text, id, completed) => {
+
+const Form = ({input, setInput, todos, setTodos, editTodo, setEditTodo, text, setText, todoId ,setTodoId}) => {
+
+    const updateTodo = (text, _id, completed) => {
         const newTodo = todos.map((todo) =>
-            todo.id === id ? {text, id, completed} : todo
+            todo._id === _id ? {text, _id, completed} : todo
         );
         setTodos(newTodo);
         setEditTodo("");
     };
     useEffect(() => {
         if (editTodo) {
-            setInput(editTodo.text);
+            setText(editTodo.text);
         }
         else {
-            setInput("")
+            setText("")
         }
-    }, [setInput, editTodo]);
+    }, [setText, editTodo]);
 
     const onInputChange = (event) => {
-        setInput(event.target.value);
+        setText(event.target.value);
     };
 
     const onFormSubmit = (event) => {
         event.preventDefault();
         if (!editTodo) {
-            setTodos([...todos, {id: uuidv4(), text: input, completed: false }]);
+            setTodos([...todos, {id: uuidv4(), text: text, completed: false }]);
             setInput("");
         }
         else {
-            updateTodo(input, editTodo.id, editTodo.completed)
+            updateTodo(text, editTodo._id, editTodo.completed)
         }
     };
 
@@ -40,13 +42,19 @@ const Form = ({input, setInput, todos, setTodos, editTodo, setEditTodo}) => {
         type='text'
         placeholder='Enter a Todo...'
         className='task-input'
-        value={input}
+        value={text}
         required
         onChange={onInputChange}
         />
-        <button className='button-add' type='submit'
+        <button
+        className='button-add' type='submit'
+        onClick={
+            editTodo ?
+            () => updateEdit(todoId, text, setTodos, setText, updateEdit)
+            :
+            () => addToDo(text, setText, setTodos)}
         >
-            {editTodo ? "OK" : "Add"}
+            {editTodo ? "Save Edit" : "Add"}
         </button>
     </form>
   )

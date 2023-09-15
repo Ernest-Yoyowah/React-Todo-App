@@ -8,7 +8,9 @@ import { getAllToDo } from './utils/handelApi';
 const App = () => {
     const [input, setInput] = useState("");
     const [todos, setTodos] = useState([]);
-    const [editTodo, setEditTodo] = useState(null);
+    const [editTodo, setEditTodo] = useState(false);
+    const [text, setText] = useState("");
+    const [todoId, setTodoId] = useState("");
 
     useEffect(() => {
       getAllToDo(setTodos)
@@ -28,6 +30,10 @@ const App = () => {
         setTodos={setTodos}
         editTodo={editTodo}
         setEditTodo={setEditTodo}
+        text={text}
+        setText={setText}
+        todoId={todoId}
+        setTodoId={setTodoId}
         />
         <div>
           <TodoList
