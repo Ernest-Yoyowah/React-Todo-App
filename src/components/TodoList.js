@@ -1,7 +1,7 @@
 import React from 'react';
-import { deleteToDo } from '../utils/handelApi';
+import { deleteToDo, updateEdit } from '../utils/handelApi';
 
-const TodoList = ({ todos, setTodos, setEditTodo, setText, setTodoId }) => {
+const TodoList = ({ todos, setTodos, setEditTodo, setText, text, completed }) => {
   const handleEdit = (_id) => {
     const findTodo = todos.find((todo) => todo._id === _id);
     setEditTodo(findTodo);
@@ -26,7 +26,10 @@ const TodoList = ({ todos, setTodos, setEditTodo, setText, setTodoId }) => {
             <div className="control-btn">
               <button
                 className="button-edit task-button"
-                onClick={() => handleEdit(todo._id)}
+                onClick={() => {
+                    handleEdit(todo._id)
+                    updateEdit(todo._id, text, setText, setTodos, setEditTodo, completed)
+                  }}
               >
                 <i className="fa fa-edit"></i>
               </button>

@@ -12,6 +12,7 @@ const Form = ({input, setInput, todos, setTodos, editTodo, setEditTodo, text, se
         setTodos(newTodo);
         setEditTodo("");
     };
+
     useEffect(() => {
         if (editTodo) {
             setText(editTodo.text);
@@ -47,11 +48,12 @@ const Form = ({input, setInput, todos, setTodos, editTodo, setEditTodo, text, se
         onChange={onInputChange}
         />
         <button
-        className='button-add' type='submit'
+        className='button-add'
+        type='submit'
         onClick={
-            editTodo ?
-            () => updateEdit(todoId, text, setTodos, setText, updateEdit) :
-            () => addToDo(text, setText, setTodos)}
+            editTodo
+            ? () => updateEdit(todoId, text, setTodos, setText, setEditTodo)
+            : () => addToDo(text, setText, setTodos)}
         >
             {editTodo ? "Save Edit" : "Add"}
         </button>
