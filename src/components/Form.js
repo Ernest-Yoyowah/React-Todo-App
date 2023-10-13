@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import { addToDo, updateEdit } from '../utils/handelApi';
 
 
-const Form = ({input, setInput, todos, setTodos, editTodo, setEditTodo, text, setText, todoId ,setTodoId}) => {
+const Form = ({, setInput, todos, setTodos, editTodo, setEditTodo, text, setText, todoId ,setTodoId}) => {
 
     const updateTodo = (text, _id, completed) => {
         const newTodo = todos.map((todo) =>
