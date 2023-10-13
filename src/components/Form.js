@@ -12,6 +12,7 @@ const Form = ({
   text,
   setText,
   todoId,
+  setTodoId,
 }) => {
   const updateTodo = (text, _id, completed) => {
     const newTodo = todos.map((todo) =>
