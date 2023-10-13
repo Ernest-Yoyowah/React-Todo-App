@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import { addToDo, updateEdit } from "../utils/handelApi";
 
 const Form = ({
+  input,
   setInput,
   todos,
   setTodos,
